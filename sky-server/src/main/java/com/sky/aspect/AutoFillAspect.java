@@ -41,7 +41,7 @@ public class AutoFillAspect {
         AutoFill autoFill = signature.getMethod().getAnnotation(AutoFill.class);//获得方法上的注解对象
         OperationType operationType = autoFill.value();//获得数据库操作类型
 
-        //我们要为员工、菜品等实体对象的部分属性赋值，因此需要先从当前被拦截的方法的参数中获取实体对象
+        //从连接点中获取需要被赋值的实体对象，比如员工、菜品
         Object[] args = joinPoint.getArgs();
 //        判断实体对象非空
         if(args == null || args.length == 0){
